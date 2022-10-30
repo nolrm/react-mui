@@ -1,26 +1,15 @@
 import React from 'react';
-interface PersonRequiredProps {
-  name: string;
-}
-
-interface PersonOptionalProps {
+interface PersonProps {
+  label: string;
   height: string;
 }
 
-interface PersonProps
-  extends PersonRequiredProps,
-    PersonOptionalProps {}
-
-const defaultProps: PersonOptionalProps = {
-  height: 'Test'
-};
-
 const Person = (props: PersonProps) => {
-  const { name, height } = props;  
+  const { label, height } = props;  
   return (
-    <div className="Person">
+    <div className="person">
       <h1>
-        Name: {props.name}
+        Name: {props.label}
       </h1>
       <p>
         Height: {props.height}
@@ -29,6 +18,4 @@ const Person = (props: PersonProps) => {
   );
 };
 
-
-Person.defaultProps = defaultProps;
 export default Person;

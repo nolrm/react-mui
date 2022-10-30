@@ -9,27 +9,33 @@ import _ from 'lodash';
 
 
 function Startwars() {
-  let peopleApi = 'https://swapi.dev/api/people';
-  let peopleSearchApi = 'https://swapi.dev/api/people/?search=';
+  const peopleApi = 'https://swapi.dev/api/people';
+  const peopleSearchApi = 'https://swapi.dev/api/people/?search=';
 
     // const [data, setData] =  useState<UserData | null>(null);
-  const [data, setData] =  useState<any | null>(null);
+  const [items, setData] =  useState<any | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
   const [search, setSearch] = useState(peopleApi);
+  const [value, setValue] = useState<any | null>(null);
 
-  const [value, setValue] = useState<string | null>(null);
-  console.log('value ---', value)
+  const [selected, setSelected] = useState<any | null>(null);
 
-
-  // const personResults: IDictionary<IPerson> = {};
+  // const [error, setError] = useState(null);
+  
   const params = useParams();
   const navigate = useNavigate();
   
+  console.log('value ---', value)
   console.log('params --', params);
-  if (params.name) {
-    setValue(params.name);
-  }
+
+  // if (params.name && !value) {
+  //   // if (value != null) {
+  //   //   console.log(value.label)
+  //   // }
+  //   // setValue(params.name);
+  // }
   
 
   // Get Stars wars persons
@@ -50,7 +56,7 @@ function Startwars() {
   
       // const result: any[] = [];
       const result : any[] = _.map(persons, function(a) {
-        return _.mapKeys(a, (value,key)=> key == 'name' ? 'label' : key )
+        return _.mapKeys(a, (val,key)=> key == 'name' ? 'label' : key )
       })
 
       setData(result);
@@ -69,23 +75,23 @@ function Startwars() {
   // 
   // On input search change
   // new request to search /search
-  const onSearch = (value: any) => {
-    const requestUrl = value ? (peopleSearchApi + value) : peopleApi;
+  const onSearch = (query: any) => {
+    const requestUrl = query ? (peopleSearchApi + query) : peopleApi;
     setSearch(requestUrl)
   };
 
   // 
   // On select of autocomplete
   // 
-  const onClick = (value: any) => {
-    let pathName = '/startwars/';
-    pathName = value ? (pathName + value.label) : pathName;
+  const onClick = (val: any) => {
+    let pathName = '/Startwars/';
+    pathName = val ? (pathName + val.label) : pathName;
 
     // Navigate to person details page
     navigate(pathName);
 
     // Set autocomplete value
-    setValue(value);
+    setValue(val);
   };
 
 
@@ -97,19 +103,21 @@ function Startwars() {
       {error && (
         <div>{`There is a problem fetching the post data - ${error}`}</div>
       )}
+      
 
-      {data && 
+      {items && 
         <Autocomplete
           disablePortal
           id="combo-box-demo"
-          options={ data }
+          options={ items }
           noOptionsText="No results"
-          loading={ !_.isEmpty(data) }
+          loading={ !_.isEmpty(items) }
           value={value}
           onChange={(event: any, newValue: string | null) => {
             onClick(newValue)
           }}
           sx={{ width: 300 }}
+          style={{ margin: '0 auto' }}
           renderInput={(params) => (
             <TextField
               {...params}
@@ -125,7 +133,9 @@ function Startwars() {
         />
       }
       
-      <Person name="Heya"/>
+      {value &&
+        <Person {...value}/>
+      }
       
     </div>
   );
