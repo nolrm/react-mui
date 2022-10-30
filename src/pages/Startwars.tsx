@@ -20,8 +20,6 @@ function Startwars() {
   const [search, setSearch] = useState(peopleApi);
   const [value, setValue] = useState<any | null>(null);
 
-  const [selected, setSelected] = useState<any | null>(null);
-
   // const [error, setError] = useState(null);
   
   const params = useParams();
