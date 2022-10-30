@@ -9,10 +9,10 @@ const Person = (props: PersonProps) => {
   return (
     <div className="person">
       <h1>
-        Name: {props.label}
+        Name: {label}
       </h1>
       <p>
-        Height: {props.height}
+        Height: {height}
       </p>
     </div>
   );

@@ -1,3 +1,6 @@
+# React + MUI
+React project using MUI components and deployed to [Netlify](https://react-mui-swapi.netlify.app/Startwars/).
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

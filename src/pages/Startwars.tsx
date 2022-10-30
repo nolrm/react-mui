@@ -54,7 +54,7 @@ function Startwars() {
   
       // const result: any[] = [];
       const result : any[] = _.map(persons, function(a) {
-        return _.mapKeys(a, (val,key)=> key == 'name' ? 'label' : key )
+        return _.mapKeys(a, (val,key)=> key === 'name' ? 'label' : key )
       })
 
       setData(result);
