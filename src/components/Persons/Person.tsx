@@ -7,13 +7,15 @@ interface PersonProps {
 const Person = (props: PersonProps) => {
   const { label, height } = props;  
   return (
-    <div className="person">
-      <h1>
-        Name: {label}
-      </h1>
-      <p>
-        Height: {height}
-      </p>
+    <div className="person-details">
+      <ul>
+        <li>
+          <strong>Name: </strong> {label}
+        </li>
+        <li>
+          <strong>Height: </strong> {height}
+        </li>
+      </ul>
     </div>
   );
 };

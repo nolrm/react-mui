@@ -1,0 +1,30 @@
+/*------------------------------------*\
+    Base
+\*------------------------------------*/
+
+body {
+  min-height: 100vh;
+  transition: color 0.5s, background-color 0.5s;
+  line-height: 1.6;
+  font-size: 15px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: $secondary;
+  text-decoration: none;
+
+  &:hover {
+    color: darken($color: $secondary, $amount: 15%);
+  }
+}
+
+
+.App {
+  max-width: 900px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}

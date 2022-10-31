@@ -94,7 +94,7 @@ function Startwars() {
 
 
   return (
-    <div>
+    <div className='page-startwars'>
       <h1>Startwars</h1>
 
       {loading && <div>A moment please...</div>}

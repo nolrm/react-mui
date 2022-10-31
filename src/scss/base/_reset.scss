@@ -1,0 +1,16 @@
+/*------------------------------------*\
+    Reset/Normalize
+\*------------------------------------*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+  font-weight: normal;
+}
+
+strong {
+  font-weight: 700;
+}
