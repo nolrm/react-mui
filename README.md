@@ -53,6 +53,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 SCSS folder structure is a SMACCS approach (Similar to Atomic - Material Design approach)
 
+```
 ./src/scss
 ├── base
 ├── components
@@ -60,6 +61,7 @@ SCSS folder structure is a SMACCS approach (Similar to Atomic - Material Design 
 ├── layouts
 ├── pages
 ├── themes
+```
   
 
 1.  **`/base`**: Boilerplate stuff, normalize, typography and etc..
