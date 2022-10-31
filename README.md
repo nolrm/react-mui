@@ -47,3 +47,36 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+## What's inside SCSS?
+
+SCSS folder structure is a SMACCS approach (Similar to Atomic - Material Design approach)
+
+./src/scss
+├── base
+├── components
+├── helpers
+├── layouts
+├── pages
+├── themes
+  
+
+1.  **`/base`**: Boilerplate stuff, normalize, typography and etc..
+
+
+2.  **`/components`**: Components or modules. Mostly composed of tiny modules such as buttons, slider, etc..
+
+
+3.  **`/helpers`**: Helpers or utils. This directory contains mixins, functions, variables or configs and etc..
+
+
+4.  **`/layouts`**: Layouts or partials. Header, nav, footer, etc..
+
+
+5.  **`/pages`**: Page specific styling. Home, about, contact, etc..
+
+
+Inspirations
+https://www.lambdatest.com/blog/smacss-scalable-modular-architecture-for-css/
+https://www.toptal.com/css/smacss-scalable-modular-architecture-css
