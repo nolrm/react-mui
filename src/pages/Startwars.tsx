@@ -1,11 +1,15 @@
 import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from "react";
+
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
-import Person from "../components/Persons/Person";
-import PersonAPI from "../components/Persons/PersonAPI";
 import _ from 'lodash';
+
+
+import IPerson from "../components/Persons/IPerson";
+import PersonAPI from "../components/Persons/PersonAPI";
+import Person from "../components/Persons/Person";
 
 
 function Startwars() {
@@ -25,6 +29,15 @@ function Startwars() {
 
   // Get Stars wars persons
   useEffect(() => {
+    function rebuildArr(arr: Array<IPerson>) {
+      const getPersonKeys = _.map(arr, _.partialRight(_.pick, ['name', 'height']));
+      const results : any[] = _.map(getPersonKeys, function(a) {
+        return _.mapKeys(a, (val,key)=> key === 'name' ? 'label' : key )
+      })
+
+      return results;
+    }
+
     fetch(search)
     .then((response) => {
       if (!response.ok) {
@@ -35,11 +48,7 @@ function Startwars() {
       return response.json();
     })
     .then((actualData) => {
-      const getPersonKeys = _.map(actualData.results, _.partialRight(_.pick, ['name', 'height']));
-      const results : any[] = _.map(getPersonKeys, function(a) {
-        return _.mapKeys(a, (val,key)=> key === 'name' ? 'label' : key )
-      })
-      setPeople(results);
+      setPeople(rebuildArr(actualData.results));
       setError(null);
     })
     .catch((err) => {
