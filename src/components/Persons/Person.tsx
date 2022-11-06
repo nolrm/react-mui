@@ -1,5 +1,4 @@
 import React from 'react';
-import IPerson from "./IPerson";
 interface PersonProps {
   label: string;
   height: string;
