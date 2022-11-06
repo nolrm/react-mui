@@ -1,20 +1,21 @@
 import React from 'react';
 import IPerson from "./IPerson";
 interface PersonProps {
-  person: IPerson
+  label: string;
+  height: string;
 }
 
 const Person = (props: PersonProps) => {
-  const { person } = props;
+  const { label, height } = props;
 
   return (
     <div className="person-details">
       <ul>
         <li>
-          <strong>Name: </strong> {person.name}
+          <strong>Name: </strong> {label}
         </li>
         <li>
-          <strong>Height: </strong> {person.height}
+          <strong>Height: </strong> {height}
         </li>
       </ul>
     </div>
